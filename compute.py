@@ -38,8 +38,8 @@ n = len(norm)
 p = norm / norm.sum()
 plogp = (p * np.log(p)).fillna(0) # 0 * log(0) = NaN, so treat it as 0
 entropy = -plogp.sum() / np.log(n)
-difference = 1 - entropy
-weight = difference / difference.sum()
+divergence = 1 - entropy
+weight = divergence / divergence.sum()
 
 print(weight.sort_values(ascending=False).round(3))
 print("sum:", weight.sum())
